@@ -34,6 +34,7 @@ public class Sighting {
     private LocalDateTime datePosted;
     private float latitude;
     private float longitude;
+    private String agent;
 
     public Integer getId() {
         return id;
@@ -129,5 +130,13 @@ public class Sighting {
 
     public void setLongitude(float longitude) {
         this.longitude = longitude;
+    }
+
+    public String getAgent() {
+        return agent;
+    }
+
+    public void setAgent(String agent) {
+        this.agent = agent;
     }
 }

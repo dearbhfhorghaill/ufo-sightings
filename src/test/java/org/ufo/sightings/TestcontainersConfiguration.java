@@ -12,7 +12,11 @@ class TestcontainersConfiguration {
 	@Bean
 	@ServiceConnection
 	MySQLContainer<?> mysqlContainer() {
-		return new MySQLContainer<>(DockerImageName.parse("mysql:latest"));
+		return new MySQLContainer<>(DockerImageName.parse("mysql:8"))
+				.withDatabaseName("testdb")
+				.withUsername("testuser")
+				.withPassword("testpass")
+				.withInitScript("schema.sql");
 	}
-
+	//Making bean static will persist across JVM for duration of tests
 }
